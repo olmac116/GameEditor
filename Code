@@ -1,0 +1,515 @@
+--[[
+
+made by olmac16#0947
+
+Can: 
+
+Set WalkSpeed to any number
+Set JumpPower to any number
+Reduce lag
+Get game info
+Set ProximityPrompt MaxActivationDistance to any number
+Activate any nearby ProximityPrompt any amount of times
+
+(more coming soon)
+
+--]]
+local StarterGui = game:GetService("StarterGui")
+local Players = game.Players
+local LocalPlayer = Players.LocalPlayer
+-- Instances:
+
+local Val = Instance.new("ScreenGui")
+local Holder = Instance.new("Frame")
+local UIGridLayout = Instance.new("UIGridLayout")
+local PromptActivate = Instance.new("Frame")
+local PRRun = Instance.new("TextButton")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local PRInput = Instance.new("TextBox")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local PRTitle = Instance.new("TextLabel")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local WalkspeedChange = Instance.new("Frame")
+local WSCRun = Instance.new("TextButton")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local WSCInput = Instance.new("TextBox")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local WSCTitle = Instance.new("TextLabel")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local JumpPowerChange = Instance.new("Frame")
+local JPRun = Instance.new("TextButton")
+local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+local JPInput = Instance.new("TextBox")
+local UITextSizeConstraint_8 = Instance.new("UITextSizeConstraint")
+local JPTitle = Instance.new("TextLabel")
+local UITextSizeConstraint_9 = Instance.new("UITextSizeConstraint")
+local LagRemove = Instance.new("Frame")
+local LRRun = Instance.new("TextButton")
+local UITextSizeConstraint_10 = Instance.new("UITextSizeConstraint")
+local LRTitle = Instance.new("TextLabel")
+local UITextSizeConstraint_11 = Instance.new("UITextSizeConstraint")
+local PromptDistance = Instance.new("Frame")
+local PDRun = Instance.new("TextButton")
+local UITextSizeConstraint_12 = Instance.new("UITextSizeConstraint")
+local PDInput = Instance.new("TextBox")
+local UITextSizeConstraint_13 = Instance.new("UITextSizeConstraint")
+local PDTitle = Instance.new("TextLabel")
+local UITextSizeConstraint_14 = Instance.new("UITextSizeConstraint")
+local GameInfo = Instance.new("Frame")
+local GIRun = Instance.new("TextButton")
+local UITextSizeConstraint_15 = Instance.new("UITextSizeConstraint")
+local GITItle = Instance.new("TextLabel")
+local UITextSizeConstraint_16 = Instance.new("UITextSizeConstraint")
+
+--Properties:
+
+Val.Name = "Val"
+Val.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Val.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Holder.Name = "Holder"
+Holder.Parent = Val
+Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Holder.BackgroundTransparency = 1.000
+Holder.Size = UDim2.new(0.0655207634, 0, 0.998641312, 0)
+
+UIGridLayout.Parent = Holder
+UIGridLayout.FillDirection = Enum.FillDirection.Vertical
+UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIGridLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIGridLayout.CellSize = UDim2.new(1, 0,0.087, 0)
+UIGridLayout.CellPadding = UDim2.new(0, 10,0, 10)
+
+PromptActivate.Name = "PromptActivate"
+PromptActivate.Parent = Holder
+PromptActivate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PromptActivate.BackgroundTransparency = 0.900
+PromptActivate.Position = UDim2.new(0, 0, 0.56292516, 0)
+PromptActivate.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+PRRun.Name = "PRRun"
+PRRun.Parent = PromptActivate
+PRRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PRRun.BackgroundTransparency = 0.500
+PRRun.Position = UDim2.new(0, 0, 0.606317997, 0)
+PRRun.Size = UDim2.new(1, 0, 0.393679976, 0)
+PRRun.Font = Enum.Font.GothamBold
+PRRun.Text = "Run"
+PRRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+PRRun.TextScaled = true
+PRRun.TextSize = 5.000
+PRRun.TextWrapped = true
+
+UITextSizeConstraint.Parent = PRRun
+UITextSizeConstraint.MaxTextSize = 15
+
+PRInput.Name = "PRInput"
+PRInput.Parent = PromptActivate
+PRInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PRInput.BackgroundTransparency = 0.500
+PRInput.Position = UDim2.new(0, 0, 0.153846905, 0)
+PRInput.Size = UDim2.new(1, 0, 0.452468753, 0)
+PRInput.Font = Enum.Font.GothamBold
+PRInput.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+PRInput.PlaceholderText = "input value"
+PRInput.Text = ""
+PRInput.TextColor3 = Color3.fromRGB(0, 0, 0)
+PRInput.TextScaled = true
+PRInput.TextSize = 5.000
+PRInput.TextWrapped = true
+
+UITextSizeConstraint_2.Parent = PRInput
+UITextSizeConstraint_2.MaxTextSize = 15
+
+PRTitle.Name = "PRTitle"
+PRTitle.Parent = PromptActivate
+PRTitle.Active = true
+PRTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PRTitle.BackgroundTransparency = 0.500
+PRTitle.Selectable = true
+PRTitle.Size = UDim2.new(1, 0, 0.15384692, 0)
+PRTitle.Font = Enum.Font.GothamBold
+PRTitle.Text = "Prompt Activate"
+PRTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+PRTitle.TextScaled = true
+PRTitle.TextSize = 5.000
+PRTitle.TextWrapped = true
+
+UITextSizeConstraint_3.Parent = PRTitle
+UITextSizeConstraint_3.MaxTextSize = 15
+
+WalkspeedChange.Name = "WalkspeedChange"
+WalkspeedChange.Parent = Holder
+WalkspeedChange.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WalkspeedChange.BackgroundTransparency = 0.900
+WalkspeedChange.Position = UDim2.new(0, 0, 0.454081625, 0)
+WalkspeedChange.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+WSCRun.Name = "WSCRun"
+WSCRun.Parent = WalkspeedChange
+WSCRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WSCRun.BackgroundTransparency = 0.500
+WSCRun.Position = UDim2.new(0, 0, 0.606317997, 0)
+WSCRun.Size = UDim2.new(1, 0, 0.393679976, 0)
+WSCRun.Font = Enum.Font.GothamBold
+WSCRun.Text = "Change"
+WSCRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+WSCRun.TextScaled = true
+WSCRun.TextSize = 5.000
+WSCRun.TextWrapped = true
+
+UITextSizeConstraint_4.Parent = WSCRun
+UITextSizeConstraint_4.MaxTextSize = 15
+
+WSCInput.Name = "WSCInput"
+WSCInput.Parent = WalkspeedChange
+WSCInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WSCInput.BackgroundTransparency = 0.500
+WSCInput.Position = UDim2.new(0, 0, 0.153846905, 0)
+WSCInput.Size = UDim2.new(1, 0, 0.452468753, 0)
+WSCInput.Font = Enum.Font.GothamBold
+WSCInput.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+WSCInput.PlaceholderText = "input value"
+WSCInput.Text = ""
+WSCInput.TextColor3 = Color3.fromRGB(0, 0, 0)
+WSCInput.TextScaled = true
+WSCInput.TextSize = 5.000
+WSCInput.TextWrapped = true
+
+UITextSizeConstraint_5.Parent = WSCInput
+UITextSizeConstraint_5.MaxTextSize = 15
+
+WSCTitle.Name = "WSCTitle"
+WSCTitle.Parent = WalkspeedChange
+WSCTitle.Active = true
+WSCTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WSCTitle.BackgroundTransparency = 0.500
+WSCTitle.Selectable = true
+WSCTitle.Size = UDim2.new(1, 0, 0.15384692, 0)
+WSCTitle.Font = Enum.Font.GothamBold
+WSCTitle.Text = "Set Walkspeed"
+WSCTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+WSCTitle.TextScaled = true
+WSCTitle.TextSize = 5.000
+WSCTitle.TextWrapped = true
+
+UITextSizeConstraint_6.Parent = WSCTitle
+UITextSizeConstraint_6.MaxTextSize = 15
+
+JumpPowerChange.Name = "JumpPowerChange"
+JumpPowerChange.Parent = Holder
+JumpPowerChange.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+JumpPowerChange.BackgroundTransparency = 0.900
+JumpPowerChange.Position = UDim2.new(0, 0, 0.350340128, 0)
+JumpPowerChange.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+JPRun.Name = "JPRun"
+JPRun.Parent = JumpPowerChange
+JPRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+JPRun.BackgroundTransparency = 0.500
+JPRun.Position = UDim2.new(0, 0, 0.606317997, 0)
+JPRun.Size = UDim2.new(1, 0, 0.393679976, 0)
+JPRun.Font = Enum.Font.GothamBold
+JPRun.Text = "Change"
+JPRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+JPRun.TextScaled = true
+JPRun.TextSize = 5.000
+JPRun.TextWrapped = true
+
+UITextSizeConstraint_7.Parent = JPRun
+UITextSizeConstraint_7.MaxTextSize = 15
+
+JPInput.Name = "JPInput"
+JPInput.Parent = JumpPowerChange
+JPInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+JPInput.BackgroundTransparency = 0.500
+JPInput.Position = UDim2.new(0, 0, 0.153846905, 0)
+JPInput.Size = UDim2.new(1, 0, 0.452468753, 0)
+JPInput.Font = Enum.Font.GothamBold
+JPInput.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+JPInput.PlaceholderText = "input value"
+JPInput.Text = ""
+JPInput.TextColor3 = Color3.fromRGB(0, 0, 0)
+JPInput.TextScaled = true
+JPInput.TextSize = 5.000
+JPInput.TextWrapped = true
+
+UITextSizeConstraint_8.Parent = JPInput
+UITextSizeConstraint_8.MaxTextSize = 15
+
+JPTitle.Name = "JPTitle"
+JPTitle.Parent = JumpPowerChange
+JPTitle.Active = true
+JPTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+JPTitle.BackgroundTransparency = 0.500
+JPTitle.Selectable = true
+JPTitle.Size = UDim2.new(1, 0, 0.15384692, 0)
+JPTitle.Font = Enum.Font.GothamBold
+JPTitle.Text = "Set Jump Power"
+JPTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+JPTitle.TextScaled = true
+JPTitle.TextSize = 5.000
+JPTitle.TextWrapped = true
+
+UITextSizeConstraint_9.Parent = JPTitle
+UITextSizeConstraint_9.MaxTextSize = 15
+
+LagRemove.Name = "LagRemove"
+LagRemove.Parent = Holder
+LagRemove.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LagRemove.BackgroundTransparency = 0.900
+LagRemove.Position = UDim2.new(0, 0, 0.454081625, 0)
+LagRemove.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+LRRun.Name = "LRRun"
+LRRun.Parent = LagRemove
+LRRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LRRun.BackgroundTransparency = 0.500
+LRRun.Position = UDim2.new(0, 0, 0.429844886, 0)
+LRRun.Size = UDim2.new(1, 0, 0.570152938, 0)
+LRRun.Font = Enum.Font.GothamBold
+LRRun.Text = "Run"
+LRRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+LRRun.TextScaled = true
+LRRun.TextSize = 5.000
+LRRun.TextWrapped = true
+
+UITextSizeConstraint_10.Parent = LRRun
+UITextSizeConstraint_10.MaxTextSize = 15
+
+LRTitle.Name = "LRTitle"
+LRTitle.Parent = LagRemove
+LRTitle.Active = true
+LRTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LRTitle.BackgroundTransparency = 0.500
+LRTitle.Selectable = true
+LRTitle.Size = UDim2.new(1, 0, 0.429844975, 0)
+LRTitle.Font = Enum.Font.GothamBold
+LRTitle.Text = "Remove lag"
+LRTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+LRTitle.TextScaled = true
+LRTitle.TextSize = 5.000
+LRTitle.TextWrapped = true
+
+UITextSizeConstraint_11.Parent = LRTitle
+UITextSizeConstraint_11.MaxTextSize = 15
+
+PromptDistance.Name = "PromptDistance"
+PromptDistance.Parent = Holder
+PromptDistance.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PromptDistance.BackgroundTransparency = 0.900
+PromptDistance.Position = UDim2.new(0, 0, 0.56292516, 0)
+PromptDistance.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+PDRun.Name = "PDRun"
+PDRun.Parent = PromptDistance
+PDRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PDRun.BackgroundTransparency = 0.500
+PDRun.Position = UDim2.new(0, 0, 0.606317997, 0)
+PDRun.Size = UDim2.new(1, 0, 0.393679976, 0)
+PDRun.Font = Enum.Font.GothamBold
+PDRun.Text = "Set"
+PDRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+PDRun.TextScaled = true
+PDRun.TextSize = 5.000
+PDRun.TextWrapped = true
+
+UITextSizeConstraint_12.Parent = PDRun
+UITextSizeConstraint_12.MaxTextSize = 15
+
+PDInput.Name = "PDInput"
+PDInput.Parent = PromptDistance
+PDInput.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PDInput.BackgroundTransparency = 0.500
+PDInput.Position = UDim2.new(0, 0, 0.153846905, 0)
+PDInput.Size = UDim2.new(1, 0, 0.452468753, 0)
+PDInput.Font = Enum.Font.GothamBold
+PDInput.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+PDInput.PlaceholderText = "input value"
+PDInput.Text = ""
+PDInput.TextColor3 = Color3.fromRGB(0, 0, 0)
+PDInput.TextScaled = true
+PDInput.TextSize = 5.000
+PDInput.TextWrapped = true
+
+UITextSizeConstraint_13.Parent = PDInput
+UITextSizeConstraint_13.MaxTextSize = 15
+
+PDTitle.Name = "PDTitle"
+PDTitle.Parent = PromptDistance
+PDTitle.Active = true
+PDTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PDTitle.BackgroundTransparency = 0.500
+PDTitle.Selectable = true
+PDTitle.Size = UDim2.new(1, 0, 0.15384692, 0)
+PDTitle.Font = Enum.Font.GothamBold
+PDTitle.Text = "Set Prompt Distance"
+PDTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+PDTitle.TextScaled = true
+PDTitle.TextSize = 5.000
+PDTitle.TextWrapped = true
+
+UITextSizeConstraint_14.Parent = PDTitle
+UITextSizeConstraint_14.MaxTextSize = 15
+
+GameInfo.Name = "GameInfo"
+GameInfo.Parent = Holder
+GameInfo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GameInfo.BackgroundTransparency = 0.900
+GameInfo.Position = UDim2.new(0, 0, 0.454081625, 0)
+GameInfo.Size = UDim2.new(1, 0, 0.0867346972, 0)
+
+GIRun.Name = "GIRun"
+GIRun.Parent = GameInfo
+GIRun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GIRun.BackgroundTransparency = 0.500
+GIRun.Position = UDim2.new(0, 0, 0.429844886, 0)
+GIRun.Size = UDim2.new(1, 0, 0.570152938, 0)
+GIRun.Font = Enum.Font.GothamBold
+GIRun.Text = "Get"
+GIRun.TextColor3 = Color3.fromRGB(0, 0, 0)
+GIRun.TextScaled = true
+GIRun.TextSize = 5.000
+GIRun.TextWrapped = true
+
+UITextSizeConstraint_15.Parent = GIRun
+UITextSizeConstraint_15.MaxTextSize = 15
+
+GITItle.Name = "GITItle"
+GITItle.Parent = GameInfo
+GITItle.Active = true
+GITItle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GITItle.BackgroundTransparency = 0.500
+GITItle.Selectable = true
+GITItle.Size = UDim2.new(1, 0, 0.429844975, 0)
+GITItle.Font = Enum.Font.GothamBold
+GITItle.Text = "Get Game Info"
+GITItle.TextColor3 = Color3.fromRGB(0, 0, 0)
+GITItle.TextScaled = true
+GITItle.TextSize = 5.000
+GITItle.TextWrapped = true
+
+UITextSizeConstraint_16.Parent = GITItle
+UITextSizeConstraint_16.MaxTextSize = 15
+
+-- Functions --
+
+
+PRInput:GetPropertyChangedSignal("Text"):Connect(function()
+	PRInput.Text = PRInput.Text:gsub('%D+', '');
+end)
+
+WSCInput:GetPropertyChangedSignal("Text"):Connect(function()
+	WSCInput.Text = WSCInput.Text:gsub('%D+', '');
+end)
+PDInput:GetPropertyChangedSignal("Text"):Connect(function()
+	PDInput.Text = PDInput.Text:gsub('%D+', '');
+end)
+
+JPInput:GetPropertyChangedSignal("Text"):Connect(function()
+	JPInput.Text = JPInput.Text:gsub('%D+', '');
+end)
+
+
+PRRun.MouseButton1Click:Connect(function()
+	StarterGui:SetCore("SendNotification", {
+		Title = "Activating Promps";
+		Text = "Activating Near by ProximityPrompt(s): "..PRInput.Text.." Times.";
+		Duration = 5
+	})
+
+	for i,v in pairs(workspace:GetDescendants()) do
+		if v:IsA("ProximityPrompt") then
+			for i=1, PRInput.Text do fireproximityprompt(v)
+			end
+		end
+	end
+end)
+
+LRRun.MouseButton1Click:Connect(function()
+	StarterGui:SetCore("SendNotification", {
+		Title = "Lag Reducer";
+		Text = "All BasePart Material(s) have been set to SMOOTHPLASTIC";
+		Duration = 5
+	})
+
+	for i, v in pairs(game.Workspace:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.Material = Enum.Material.SmoothPlastic
+
+
+		end
+	end
+end)
+
+WSCRun.MouseButton1Click:Connect(function()
+	if WSCInput.Text == "" then
+		LocalPlayer.Character.Humanoid.WalkSpeed = 16
+
+		StarterGui:SetCore("SendNotification", {
+			Title = "WalkSpeed Set";
+			Text = "WalkSpeed reset to 16";
+			Duration = 5
+		})
+	else
+		LocalPlayer.Character.Humanoid.WalkSpeed = WSCInput.Text
+
+		StarterGui:SetCore("SendNotification", {
+			Title = "WalkSpeed Set";
+			Text = "WalkSpeed set to "..WSCInput.Text..". Default is 16.";
+			Duration = 5
+		})
+	end
+end)
+
+JPRun.MouseButton1Click:Connect(function()
+	if JPInput == "" then
+		LocalPlayer.Character.Humanoid.UseJumpPower = true
+		wait(0.01)
+		LocalPlayer.Character.Humanoid.JumpPower = 50
+
+		StarterGui:SetCore("SendNotification", {
+			Title = "";
+			Text = "JumpPower reset to 50.";
+			Duration = 5
+		})
+	else
+		LocalPlayer.Character.Humanoid.UseJumpPower = true
+		wait(0.01)
+		LocalPlayer.Character.Humanoid.JumpPower = JPInput.Text
+
+		StarterGui:SetCore("SendNotification", {
+			Title = "JumpPower Set";
+			Text = "JumpPower set to "..JPInput.Text..". Default is 50.";
+			Duration = 5
+		})
+	end
+end)
+
+PDRun.MouseButton1Click:Connect(function()
+	for i, v in pairs(game.Workspace:GetDescendants()) do
+		if v:IsA("ProximityPrompt") then
+			v.MaxActivationDistance = PDInput.Text
+
+			StarterGui:SetCore("SendNotification", {
+				Title = "MaxActivationDistance Changed!";
+				Text = "All ProximityPrompt(s) MaxActivationDistance have been set to "..PDInput.Text.." successfully";
+				Duration = 5
+			})
+		end
+	end
+end)
+
+GIRun.MouseButton1Click:Connect(function()
+	StarterGui:SetCore("SendNotification", {
+		Title = "Getting Game Info...";
+		Duration = 5
+	})
+	wait(5)
+	StarterGui:SetCore("SendNotification", {
+		Title = "Game Info";
+		Text = "Game ID "..game.GameId.."	Game Name "..game.Name.."	Job ID "..game.JobId.."		Place Version"..game.PlaceVersion.."";
+		Duration = 15
+	})
+end)
